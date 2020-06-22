@@ -8,7 +8,7 @@
 
 # Typescript
 dist/
-tsbuildinfo.ignore
+tsconfig.tsbuildinfo
 
 # Webpack Plugins
 node_modules/
