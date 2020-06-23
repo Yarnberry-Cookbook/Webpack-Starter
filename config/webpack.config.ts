@@ -25,6 +25,7 @@ const paths = {
     tsconfig: root("tsconfig.json"),
   },
 };
+
 /** The base webpack config needed with a few optimizations. Some of this should explain itself. */
 const baseConfig: Configuration = {
   devtool: "source-map",
@@ -79,7 +80,8 @@ const baseConfig: Configuration = {
       },
     }),
     {
-      apply: (compiler) => { // This is a custom plugin (not imported) that tells Webpack to exit when done, since it tends to hang on CI servers.
+      apply: (compiler) => {
+        // This is a custom plugin (not imported) that tells Webpack to exit when done, since it tends to hang on CI servers.
         compiler.hooks.done.tap("DonePlugin", (_stats) => {
           if (isProductionBuild) {
             setTimeout(() => {
